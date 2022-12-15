@@ -1,0 +1,56 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{titulo}}
+                        <div *ngIf="loading" class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </h3>
+                    <div *ngIf="exitoso; else elseTemplate" class="alert alert-success" role="alert">
+                        Registro exitoso
+                    </div>
+                    <ng-template #elseTemplate>
+                        <div class="alert alert-danger" role="alert">
+                            Ingrese datos
+                          </div>
+                    </ng-template>
+                    <span class="bg-danger" *ngIf="submited && createEmpleado.invalid">Todos los campos son obligatorios</span>
+                    <form [formGroup]="createEmpleado" (ngSubmit)="agregarEditarEmpleado()" class="mt-4">
+                        <div class="row">
+                            <div class="col-3 m-1">
+                                <input  formControlName="descripcion" type="text" class="form-control" placeholder="descripcion">
+                            </div>
+                            <div class="col-3 m-1">
+                                <input formControlName="email" type="text" class="form-control" placeholder="email">
+                            </div>
+                            <div class="col-3 m-1">
+                                <input formControlName="fotoUrlLugar" type="text" class="form-control" placeholder="foto">
+                            </div>
+                            <div class="col-3 m-1">
+                                <input formControlName="idUsuario" type="text" class="form-control" placeholder="id Usuario">
+                            </div>
+                            <div class="col-3 m-1">
+                                <input formControlName="latitud" type="text" class="form-control" placeholder="latitud">
+                            </div>
+                            <div class="col-3 m-1">
+                                <input formControlName="longitud" type="text" class="form-control" placeholder="longitud">
+                            </div>
+                            <div class="col-3 m-1">
+                                <input formControlName="nombreLugar" type="text" class="form-control" placeholder="nombre lugar">
+                            </div>
+                            <div class="col-3 m-1">
+                                <input formControlName="nombreUsuario" type="text" class="form-control" placeholder="nombre usuario">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary btn-lg" style="margin-right:10px ;" routerLink="/list-empleados">Volver</button>
+                            <button type="submit" class="btn btn-dark btn-lg">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "appchusay": {
+      "hosting": {
+        "chusay": [
+          "appchusay"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "appchusay"
+  }
+}
